@@ -1,0 +1,98 @@
+"Name"     = 'JSLite'
+"Author"   = 'Alaa Abdullah'
+"Version"  = '1.00'
+           
+"Start Symbol" = <program>
+! -------------------------------------------------
+! Terminals
+! -------------------------------------------------              
+
+Digit = ('+'|'-')?{digit}+ ('.'{digit}+)? (('e'|('-'|'+')?{digit}+) '^' ('+'|'-'){digit}+('.'{digit}+)? )?     
+Id = [_]|{Letter}{Alphanumeric}*       
+! -------------------------------------------------
+! Rules
+! -------------------------------------------------
+<program> ::= Start <statement> End
+
+<statement> ::= <concept> 
+              | <concept> <statement>
+
+<concept> ::= <assignment> 
+            | <if> 
+            | <for> 
+            | <switch> 
+            | <ternary>
+            |<function>
+            |<Array>
+
+<assignment> ::= <id> '=' <expr>
+
+<id> ::= Id
+
+<expr> ::= <expr> '+' <term>
+         | <expr> '-' <term>
+         | <term>
+
+<term> ::= <term> '*' <factor>
+         | <term> '/' <factor>
+         | <term> '%' <factor>
+         | <factor>
+
+<factor> ::= <factor> '**' <exponent>
+           | <exponent>
+
+<exponent> ::= '(' <expr> ')' 
+             | <id>
+             | <digit>
+
+<digit> ::= Digit
+
+!------------- Array (arr[index]) --------        
+<array> ::= <id> '[' <expr> ']'         
+
+!----- if -------
+<if> ::= if '(' <condition> ')' '{' <statement> '}'
+       | if '(' <condition> ')' '{' <statement> '}' else <statement>
+
+<condition> ::= <expr> <op> <expr>
+
+<op> ::= '<' | '>' | '==' | '!='
+      
+!-------------- for -----------------
+
+<for> ::= for '(' <data-type> <assignment> ';' <condition> ';' <step> ')' '{' <statement> '}'
+
+<data-type> ::= int | float | double | string
+
+<step> ::= '--' <id>
+         | <id> '--'
+         | '++' <id>
+         | <id> '++'
+         | <assignment>
+
+!------------ Switch -------------
+<switch> ::= switch '(' <expr> ')' '{' <case-list> '}'
+
+<case-list> ::= <case>
+              | <case> <case-list>
+
+<case> ::= case <expr> ':' <statement>
+        
+!------------- Ternary operator (?) --------
+<ternary> ::= <expr> '?' <statement> | <expr> ':' <statement> | <expr>
+           
+!---------------Function ----------------
+<function> ::= <id> '(' <param-list> ')' '{' <statement> '}'
+
+<param-list> ::= <param>
+               | <param> ',' <param-list>
+
+<param> ::= <data-type> <id>
+
+
+
+   
+
+
+
+
