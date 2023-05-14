@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "JSLite/1.0.0": {
+        "dependencies": {
+          "CalithaLib": "1.13.2403.14266",
+          "GoldParserEngine": "1.13.2403.14266"
+        },
+        "runtime": {
+          "JSLite.dll": {}
+        }
+      },
+      "CalithaLib/1.13.2403.14266": {
+        "runtime": {
+          "CalithaLib.dll": {
+            "assemblyVersion": "1.13.2403.14266",
+            "fileVersion": "1.13.2403.14266"
+          }
+        }
+      },
+      "GoldParserEngine/1.13.2403.14266": {
+        "runtime": {
+          "GoldParserEngine.dll": {
+            "assemblyVersion": "1.13.2403.14266",
+            "fileVersion": "1.13.2403.14266"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "JSLite/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CalithaLib/1.13.2403.14266": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GoldParserEngine/1.13.2403.14266": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
